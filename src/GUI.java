@@ -43,11 +43,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         bntDontSave = new javax.swing.JButton();
-        themeFrame = new javax.swing.JFrame();
-        jPanel3 = new javax.swing.JPanel();
-        rdrLight = new javax.swing.JRadioButton();
-        rdrDark = new javax.swing.JRadioButton();
-        btnSaveTheme = new javax.swing.JButton();
         aboutFrame = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,6 +55,9 @@ public class GUI extends javax.swing.JFrame {
         comboPoint = new javax.swing.JComboBox<>();
         lblPt = new javax.swing.JLabel();
         seperator = new javax.swing.JSeparator();
+        btnSaveSettings = new javax.swing.JButton();
+        comboThemes = new javax.swing.JComboBox<>();
+        lblTheme = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuClose = new javax.swing.JMenuItem();
@@ -129,78 +127,6 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(saveWarningLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        themeFrame.setTitle("Themes");
-        themeFrame.setMinimumSize(new java.awt.Dimension(400, 150));
-        themeFrame.setResizable(false);
-        themeFrame.setSize(new java.awt.Dimension(400, 150));
-
-        jPanel3.setMaximumSize(new java.awt.Dimension(100, 100));
-
-        rdrLight.setText("Light");
-        rdrLight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdrLightActionPerformed(evt);
-            }
-        });
-
-        rdrDark.setText("Dark");
-        rdrDark.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdrDarkActionPerformed(evt);
-            }
-        });
-
-        btnSaveTheme.setText("Save");
-        btnSaveTheme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveThemeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(rdrLight)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
-                .addComponent(rdrDark)
-                .addGap(49, 49, 49))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSaveTheme, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdrLight)
-                    .addComponent(rdrDark))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSaveTheme)
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout themeFrameLayout = new javax.swing.GroupLayout(themeFrame.getContentPane());
-        themeFrame.getContentPane().setLayout(themeFrameLayout);
-        themeFrameLayout.setHorizontalGroup(
-            themeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, themeFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-        themeFrameLayout.setVerticalGroup(
-            themeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, themeFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         aboutFrame.setTitle("About");
@@ -284,13 +210,29 @@ public class GUI extends javax.swing.JFrame {
 
         lblPt.setText("Point");
 
+        btnSaveSettings.setText("Save Settings");
+        btnSaveSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveSettingsActionPerformed(evt);
+            }
+        });
+
+        comboThemes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
+        comboThemes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboThemesActionPerformed(evt);
+            }
+        });
+
+        lblTheme.setText("Themes");
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(comboFonts, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,7 +241,13 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(comboPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPt)))
+                        .addComponent(lblPt)
+                        .addGap(106, 106, 106)
+                        .addComponent(comboThemes, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTheme)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSaveSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(seperator, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -314,9 +262,12 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(comboFonts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblFonts)
                             .addComponent(comboPoint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPt))))
+                            .addComponent(lblPt)
+                            .addComponent(btnSaveSettings)
+                            .addComponent(comboThemes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTheme))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -554,32 +505,6 @@ public class GUI extends javax.swing.JFrame {
         saveWarning.setVisible(false);
     }//GEN-LAST:event_bntDontSaveActionPerformed
 
-    // Selects light theme.
-    private void rdrLightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdrLightActionPerformed
-        rdrDark.setSelected(false);
-    }//GEN-LAST:event_rdrLightActionPerformed
-
-    // Selects dark theme.
-    private void rdrDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdrDarkActionPerformed
-        rdrLight.setSelected(false);
-    }//GEN-LAST:event_rdrDarkActionPerformed
-
-    // Applies user theme selection choice.
-    private void btnSaveThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveThemeActionPerformed
-        if (rdrLight.isSelected()) {
-            textArea.setBackground(Color.WHITE);
-            textArea.setForeground(Color.BLACK);
-            settings[0] = "Light";
-        }
-        else if (rdrDark.isSelected()) {
-            textArea.setBackground(Color.DARK_GRAY);
-            textArea.setForeground(Color.WHITE);
-            settings[0] = "Dark";
-        }
-
-        themeFrame.setVisible(false);
-    }//GEN-LAST:event_btnSaveThemeActionPerformed
-
     // Shows the about frame.
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         aboutFrame.setLocation((int)(width - aboutFrame.getWidth()/2),(int)(height - aboutFrame.getHeight()/2));
@@ -588,8 +513,7 @@ public class GUI extends javax.swing.JFrame {
 
     // Shows the edit theme frame.
     private void editThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editThemeActionPerformed
-        themeFrame.setLocation((int)(width - themeFrame.getWidth()/2),(int)(height - themeFrame.getHeight()/2));
-        themeFrame.setVisible(true);
+
     }//GEN-LAST:event_editThemeActionPerformed
 
     // Allows the user to select a font from a list and apply it.
@@ -659,6 +583,35 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_textAreaKeyPressed
 
+    private void btnSaveSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSettingsActionPerformed
+        if (comboThemes.getSelectedIndex() == 0){
+            settings[0] = "Light";
+        }else{
+            settings[0] = "Dark";
+        }
+        settings[1] = textArea.getFont().getName();
+        settings[2] = String.valueOf(textArea.getFont().getSize());
+        try{
+            FileOutputStream fos = new FileOutputStream("settings.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(settings);
+            oos.close();
+            fos.close();
+        }catch (IOException error){
+            // do nothing
+        }
+    }//GEN-LAST:event_btnSaveSettingsActionPerformed
+
+    private void comboThemesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboThemesActionPerformed
+        if (comboThemes.getSelectedIndex() == 0){
+            textArea.setBackground(Color.WHITE);
+            textArea.setForeground(Color.black);
+        }else{
+            textArea.setBackground(Color.darkGray);
+            textArea.setForeground(Color.white);
+        }
+    }//GEN-LAST:event_comboThemesActionPerformed
+
     // loads the setting file if it exists, then applies the settings.
     private void loadFile() { // loads saved settings
         try{
@@ -679,12 +632,12 @@ public class GUI extends javax.swing.JFrame {
         }
         switch (settings[0]){
             case "Light":
-                rdrLight.setSelected(true);
+                comboThemes.setSelectedIndex(0);
                 textArea.setBackground(Color.WHITE);
                 textArea.setForeground(Color.BLACK);
                 break;
             case "Dark":
-                rdrDark.setSelected(true);
+                comboThemes.setSelectedIndex(1);
                 textArea.setBackground(Color.DARK_GRAY);
                 textArea.setForeground(Color.WHITE);
                 break;
@@ -763,9 +716,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JFrame aboutFrame;
     private javax.swing.JButton bntDontSave;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnSaveTheme;
+    private javax.swing.JButton btnSaveSettings;
     private javax.swing.JComboBox<String> comboFonts;
     private javax.swing.JComboBox<String> comboPoint;
+    private javax.swing.JComboBox<String> comboThemes;
     private javax.swing.JMenuItem editTheme;
     private javax.swing.JMenuItem fileOpen;
     private javax.swing.JMenuItem fileSave;
@@ -775,22 +729,19 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFonts;
     private javax.swing.JLabel lblPt;
+    private javax.swing.JLabel lblTheme;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuClose;
     private javax.swing.JMenu menuEdit;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenu menuHelp;
-    private javax.swing.JRadioButton rdrDark;
-    private javax.swing.JRadioButton rdrLight;
     private javax.swing.JDialog saveWarning;
     private javax.swing.JSeparator seperator;
     private javax.swing.JTextArea textArea;
-    private javax.swing.JFrame themeFrame;
     // End of variables declaration//GEN-END:variables
 }
