@@ -64,8 +64,6 @@ public class GUI extends javax.swing.JFrame {
         fileOpen = new javax.swing.JMenuItem();
         fileSave = new javax.swing.JMenuItem();
         fileSaveAs = new javax.swing.JMenuItem();
-        menuEdit = new javax.swing.JMenu();
-        editTheme = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -319,18 +317,6 @@ public class GUI extends javax.swing.JFrame {
 
         menuBar.add(menuFile);
 
-        menuEdit.setText("Edit");
-
-        editTheme.setText("Theme");
-        editTheme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editThemeActionPerformed(evt);
-            }
-        });
-        menuEdit.add(editTheme);
-
-        menuBar.add(menuEdit);
-
         menuHelp.setText("Help");
 
         jMenuItem1.setText("About");
@@ -510,11 +496,6 @@ public class GUI extends javax.swing.JFrame {
         aboutFrame.setLocation((int)(width - aboutFrame.getWidth()/2),(int)(height - aboutFrame.getHeight()/2));
         aboutFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    // Shows the edit theme frame.
-    private void editThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editThemeActionPerformed
-
-    }//GEN-LAST:event_editThemeActionPerformed
 
     // Allows the user to select a font from a list and apply it.
     private void comboFontsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFontsActionPerformed
@@ -720,7 +701,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboFonts;
     private javax.swing.JComboBox<String> comboPoint;
     private javax.swing.JComboBox<String> comboThemes;
-    private javax.swing.JMenuItem editTheme;
     private javax.swing.JMenuItem fileOpen;
     private javax.swing.JMenuItem fileSave;
     private javax.swing.JMenuItem fileSaveAs;
@@ -737,7 +717,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuClose;
-    private javax.swing.JMenu menuEdit;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenu menuHelp;
     private javax.swing.JDialog saveWarning;
