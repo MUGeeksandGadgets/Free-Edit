@@ -34,6 +34,27 @@ public class GUI extends javax.swing.JFrame {
     // builds the GUI components.
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        javax.swing.JSeparator separator;
+        javax.swing.JButton bntDontSave;
+        javax.swing.JButton btnSave;
+        javax.swing.JMenuItem fileOpen;
+        javax.swing.JMenuItem fileSave;
+        javax.swing.JMenuItem fileSaveAs;
+        javax.swing.JLabel jLabel1;
+        javax.swing.JLabel jLabel2;
+        javax.swing.JLabel jLabel3;
+        javax.swing.JMenuItem jMenuItem1;
+        javax.swing.JPanel jPanel2;
+        javax.swing.JPanel jPanel4;
+        javax.swing.JScrollPane jScrollPane1;
+        javax.swing.JLabel lblFonts;
+        javax.swing.JLabel lblPt;
+        javax.swing.JLabel lblTheme;
+        javax.swing.JPanel mainPanel;
+        javax.swing.JMenuBar menuBar;
+        javax.swing.JMenuItem menuClose;
+        javax.swing.JMenu menuFile;
+        javax.swing.JMenu menuHelp;
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth()/2;
@@ -54,8 +75,7 @@ public class GUI extends javax.swing.JFrame {
         lblFonts = new javax.swing.JLabel();
         comboPoint = new javax.swing.JComboBox<>();
         lblPt = new javax.swing.JLabel();
-        seperator = new javax.swing.JSeparator();
-        btnSaveSettings = new javax.swing.JButton();
+        separator = new javax.swing.JSeparator();
         comboThemes = new javax.swing.JComboBox<>();
         lblTheme = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
@@ -180,14 +200,9 @@ public class GUI extends javax.swing.JFrame {
 
         textArea.setColumns(20);
         textArea.setRows(5);
-        textArea.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textAreaKeyPressed(evt);
-            }
-        });
         jScrollPane1.setViewportView(textArea);
 
-        comboFonts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Times New Roman", "Arial", "Sans", "Ubuntu" }));
+        comboFonts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arial", "Sans", "Ubuntu", "Monospace", "Courier" }));
         comboFonts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboFontsActionPerformed(evt);
@@ -196,7 +211,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblFonts.setText("Fonts");
 
-        comboPoint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "14", "16", "18", "20" }));
+        comboPoint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "14", "16", "18", "20", "24", "30", "34" }));
         comboPoint.setMaximumSize(new java.awt.Dimension(95, 25));
         comboPoint.setMinimumSize(new java.awt.Dimension(95, 25));
         comboPoint.setPreferredSize(new java.awt.Dimension(95, 25));
@@ -208,12 +223,6 @@ public class GUI extends javax.swing.JFrame {
 
         lblPt.setText("Point");
 
-        btnSaveSettings.setText("Save Settings");
-        btnSaveSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveSettingsActionPerformed(evt);
-            }
-        });
 
         comboThemes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Light", "Dark" }));
         comboThemes.addActionListener(new java.awt.event.ActionListener() {
@@ -244,16 +253,15 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(comboThemes, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTheme)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSaveSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(seperator, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(seperator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -261,7 +269,6 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(lblFonts)
                             .addComponent(comboPoint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPt)
-                            .addComponent(btnSaveSettings)
                             .addComponent(comboThemes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTheme))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -279,7 +286,6 @@ public class GUI extends javax.swing.JFrame {
 
         menuFile.setText("File");
 
-        menuClose.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         menuClose.setText("Close");
         menuClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,7 +294,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuFile.add(menuClose);
 
-        fileOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         fileOpen.setText("Open");
         fileOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,7 +302,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuFile.add(fileOpen);
 
-        fileSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         fileSave.setText("Save");
         fileSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,7 +310,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuFile.add(fileSave);
 
-        fileSaveAs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         fileSaveAs.setText("Save As");
         fileSaveAs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,13 +362,6 @@ public class GUI extends javax.swing.JFrame {
     
     // icon
     ImageIcon image = new ImageIcon("icon.png");
-    // fonts
-    private final Font timesNewRoman = new Font("Times New Roman", Font.PLAIN, 12);
-    private final Font arial = new Font("Arial", Font.PLAIN, 12);
-    private final Font sans = new Font("Sans", Font.PLAIN, 12);
-    private final Font ubuntu = new Font("Ubuntu", Font.PLAIN, 12);
-
-
 
     // Opens a file of the user's choice for editing.
     private void fileOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileOpenActionPerformed
@@ -499,79 +495,12 @@ public class GUI extends javax.swing.JFrame {
 
     // Allows the user to select a font from a list and apply it.
     private void comboFontsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFontsActionPerformed
-        switch (comboFonts.getSelectedIndex()){
-            case 0:
-                textArea.setFont(timesNewRoman);
-                break;
-            case 1:
-                textArea.setFont(arial);
-                break;
-            case 2:
-                textArea.setFont(sans);
-                break;
-            case 3:
-                textArea.setFont(ubuntu);
-                break;
-
-        }
-
-        Font font = textArea.getFont();
-        lblFonts.setText(font.getName());
-       switch (comboPoint.getSelectedIndex()){
-           case 0:
-               textArea.setFont(font.deriveFont(12f));
-               break;
-           case 1:
-               textArea.setFont(font.deriveFont(14f));
-               break;
-           case 2:
-               textArea.setFont(font.deriveFont(16f));
-               break;
-           case 3:
-               textArea.setFont(font.deriveFont(18f));
-               break;
-           case 4:
-               textArea.setFont(font.deriveFont(20f));
-               break;
-       }
-    }//GEN-LAST:event_comboFontsActionPerformed
-
-    // Allows the user to select a font size from a list, them applies it.
-    private void comboPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPointActionPerformed
-        Font font = textArea.getFont();
-        switch (comboPoint.getSelectedIndex()) {
-            case 0:
-                textArea.setFont(font.deriveFont(12f));
-                break;
-            case 1:
-                textArea.setFont(font.deriveFont(14f));
-                break;
-            case 2:
-                textArea.setFont(font.deriveFont(16f));
-                break;
-            case 3:
-                textArea.setFont(font.deriveFont(18f));
-                break;
-            case 4:
-                textArea.setFont(font.deriveFont(20f));
-                break;
-
-        }
-    }//GEN-LAST:event_comboPointActionPerformed
-
-    // Keyboard shortcuts
-    private void textAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textAreaKeyPressed
-
-    }//GEN-LAST:event_textAreaKeyPressed
-
-    private void btnSaveSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSettingsActionPerformed
-        if (comboThemes.getSelectedIndex() == 0){
-            settings[0] = "Light";
-        }else{
-            settings[0] = "Dark";
-        }
-        settings[1] = textArea.getFont().getName();
-        settings[2] = String.valueOf(textArea.getFont().getSize());
+        int selection = comboFonts.getSelectedIndex();
+        String selectedFont = comboFonts.getItemAt(selection);
+        int currentFontSize = textArea.getFont().getSize();
+        Font newFont = new Font(selectedFont, Font.PLAIN, currentFontSize);
+        textArea.setFont(newFont);
+        settings[1] = selectedFont;
         try{
             FileOutputStream fos = new FileOutputStream("settings.txt");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -581,7 +510,27 @@ public class GUI extends javax.swing.JFrame {
         }catch (IOException error){
             // do nothing
         }
-    }//GEN-LAST:event_btnSaveSettingsActionPerformed
+    }//GEN-LAST:event_comboFontsActionPerformed
+
+    // Allows the user to select a font size from a list, them applies it.
+    private void comboPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPointActionPerformed
+        String fontName = textArea.getFont().getFontName();
+        int selectedSizeIndex = comboPoint.getSelectedIndex();
+        int newSize = Integer.parseInt(comboPoint.getItemAt(selectedSizeIndex));
+        Font font = new Font(fontName, Font.PLAIN, newSize);
+        textArea.setFont(font);
+        settings[2] = String.valueOf(newSize);
+        try{
+            FileOutputStream fos = new FileOutputStream("settings.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(settings);
+            oos.close();
+            fos.close();
+        }catch (IOException error){
+            // do nothing
+        }
+    }//GEN-LAST:event_comboPointActionPerformed
+
 
     private void comboThemesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboThemesActionPerformed
         if (comboThemes.getSelectedIndex() == 0){
@@ -590,6 +539,17 @@ public class GUI extends javax.swing.JFrame {
         }else{
             textArea.setBackground(Color.darkGray);
             textArea.setForeground(Color.white);
+        }
+        int currentSelection = comboThemes.getSelectedIndex();
+        settings[0] = comboThemes.getItemAt(currentSelection);
+        try{
+            FileOutputStream fos = new FileOutputStream("settings.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(settings);
+            oos.close();
+            fos.close();
+        }catch (IOException error){
+            // do nothing
         }
     }//GEN-LAST:event_comboThemesActionPerformed
 
@@ -602,58 +562,18 @@ public class GUI extends javax.swing.JFrame {
             ois.close();
             fis.close();
 
-        }catch (IOException error){
+        }catch (IOException | ClassNotFoundException error){
             settings[0] = "Light";
-            settings[1] = "Times New Roman";
-            settings[2] = "12";
-        }catch (ClassNotFoundException error){
-            settings[0] = "Light";
-            settings[1] = "Times New Roman";
+            settings[1] = "Arial";
             settings[2] = "12";
         }
-        switch (settings[0]){
-            case "Light":
-                comboThemes.setSelectedIndex(0);
-                textArea.setBackground(Color.WHITE);
-                textArea.setForeground(Color.BLACK);
-                break;
-            case "Dark":
-                comboThemes.setSelectedIndex(1);
-                textArea.setBackground(Color.DARK_GRAY);
-                textArea.setForeground(Color.WHITE);
-                break;
-        }
-        switch (settings[1]){
-            case "Times New Roman":
-                comboFonts.setSelectedIndex(0);
-                break;
-            case "Arial":
-                comboFonts.setSelectedIndex(1);
-                break;
-            case "Sans":
-                comboFonts.setSelectedIndex(2);
-                break;
-            case "Ubuntu":
-                comboFonts.setSelectedIndex(3);
-                break;
-        }
-        switch (settings[2]){
-            case "12":
-                comboPoint.setSelectedIndex(0);
-                break;
-            case "14":
-                comboPoint.setSelectedIndex(1);
-                break;
-            case "16":
-                comboPoint.setSelectedIndex(2);
-                break;
-            case "18":
-                comboPoint.setSelectedIndex(3);
-                break;
-            case "20":
-                comboPoint.setSelectedIndex(4);
-                break;
-        }
+        String fontName = settings[1];
+        int fontSize = Integer.parseInt(settings[2]);
+        Font font = new Font(fontName, Font.PLAIN, fontSize);
+        textArea.setFont(font);
+        comboThemes.setSelectedItem(settings[0]);
+        comboFonts.setSelectedItem(settings[1]);
+        comboPoint.setSelectedItem(settings[2]);
     }
 
 
@@ -674,15 +594,9 @@ public class GUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+       }
         //</editor-fold>
 
         /* Create and display the form */
@@ -695,32 +609,10 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame aboutFrame;
-    private javax.swing.JButton bntDontSave;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnSaveSettings;
     private javax.swing.JComboBox<String> comboFonts;
     private javax.swing.JComboBox<String> comboPoint;
     private javax.swing.JComboBox<String> comboThemes;
-    private javax.swing.JMenuItem fileOpen;
-    private javax.swing.JMenuItem fileSave;
-    private javax.swing.JMenuItem fileSaveAs;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblFonts;
-    private javax.swing.JLabel lblPt;
-    private javax.swing.JLabel lblTheme;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem menuClose;
-    private javax.swing.JMenu menuFile;
-    private javax.swing.JMenu menuHelp;
     private javax.swing.JDialog saveWarning;
-    private javax.swing.JSeparator seperator;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
