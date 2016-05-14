@@ -1,11 +1,14 @@
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.io.*;
 import java.util.Scanner;
+
+import static java.awt.AWTEvent.INPUT_METHOD_EVENT_MASK;
+import static java.awt.event.KeyEvent.VK_C;
+import static java.awt.event.KeyEvent.VK_O;
+import static java.awt.event.KeyEvent.VK_S;
 
 /**
  * Shinn Edit text editing GUI
@@ -338,28 +341,35 @@ public class GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
 
-            // Set closing operations
-            WindowListener exitListener = new WindowAdapter() {
+        // Set closing operations
+        WindowListener exitListener = new WindowAdapter() {
 
-                @Override
-                public void windowClosing(WindowEvent e) {
-                    // checks if the user saved the document before they close and lose it forever.
-                    if (!oldLine.equals(textArea.getText())) {
-                        saveWarning.setVisible(true);
-                    }
-                    try {
-                        FileOutputStream fos = new FileOutputStream("settings.txt");
-                        ObjectOutputStream oos = new ObjectOutputStream(fos);
-                        oos.writeObject(settings);
-                        oos.close();
-                        fos.close();
-                    } catch (IOException error) {
-                        // do nothing
-                    }
-                    System.exit(0);
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // checks if the user saved the document before they close and lose it forever.
+                if (!oldLine.equals(textArea.getText())) {
+                    saveWarning.setVisible(true);
                 }
-            };
-            addWindowListener(exitListener);
+                try {
+                    FileOutputStream fos = new FileOutputStream("settings.txt");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(settings);
+                    oos.close();
+                    fos.close();
+                } catch (IOException error) {
+                    // do nothing
+                }
+                System.exit(0);
+            }
+        };
+        addWindowListener(exitListener);
+
+        // Set Keyboard Commands
+        menuBar.setEnabled(true);
+        fileOpen.setAccelerator(KeyStroke.getKeyStroke(( VK_O), InputEvent.CTRL_DOWN_MASK));
+        fileSave.setAccelerator(KeyStroke.getKeyStroke((VK_S), InputEvent.CTRL_DOWN_MASK));
+        menuClose.setAccelerator(KeyStroke.getKeyStroke(("alt C")));
+        fileSaveAs.setAccelerator(KeyStroke.getKeyStroke("ctrl alt S"));
     }
 
     // Opens a file of the user's choice for editing.
@@ -571,13 +581,4 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-}
-
-// additional classes needed (keyboard commands)
-
-class KeyBoardCommand{
-    //// TODO: 5/13/16 add ctrl s as save keyboard command 
-    //// TODO: 5/13/16 add ctrl 0 as open
-    //// TODO: 5/13/16 add ctrl alt s as save as 
-    //// TODO: 5/13/16 add ctrl c as close 
 }
