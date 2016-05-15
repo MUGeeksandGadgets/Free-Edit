@@ -17,7 +17,7 @@ import static java.awt.event.KeyEvent.VK_S;
  */
 public class GUI extends javax.swing.JFrame {
 
-    // usage variables
+    // global variables
     private String[] settings = new String[3];
     private File selectedFile;
     private Boolean fileOpened = false;
@@ -76,31 +76,25 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.JMenu menuHelp = new javax.swing.JMenu();
         javax.swing.JMenuItem helpAbout = new javax.swing.JMenuItem();
 
+        //set up warning dialogue
         saveWarning.setLocationRelativeTo(saveWarning.getParent());
         saveWarning.setModal(true);
         saveWarning.setTitle("File Not Saved");
         saveWarning.setMinimumSize(new java.awt.Dimension(532, 137));
         saveWarning.setResizable(false);
-
-
-        //set up warning dialogue
         warningLabel.setText("You are about to close without saving, would you like to save?");
-
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-
-
         bntDontSave.setText("Don't Save");
         bntDontSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntDontSaveActionPerformed(evt);
             }
         });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(savePanel);
         savePanel.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,13 +181,15 @@ public class GUI extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Shinn Edit");
 
+
+        // text area setup
         textArea.setColumns(20);
         textArea.setRows(5);
         jScrollPane1.setViewportView(textArea);
 
+        // fonts combo box setup
+        lblFonts.setText("Fonts");
         comboFonts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Arial", "Sans", "Ubuntu", "Monospace", "Courier"}));
         comboFonts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,8 +197,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        lblFonts.setText("Fonts");
-
+        // point combo box setup
+        lblPt.setText("Point");
         comboPoint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"12", "14", "16", "18", "20", "24", "30", "34"}));
         comboPoint.setMaximumSize(new java.awt.Dimension(95, 25));
         comboPoint.setMinimumSize(new java.awt.Dimension(95, 25));
@@ -213,9 +209,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        lblPt.setText("Point");
-
-
+        // themes combo box setup
+        lblTheme.setText("Themes");
         comboThemes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Light", "Dark"}));
         comboThemes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,8 +218,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        lblTheme.setText("Themes");
-
+        // Main panel setup
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -237,11 +231,11 @@ public class GUI extends javax.swing.JFrame {
                                                 .addComponent(comboFonts, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(lblFonts, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGap(2) // gap between comboPoint and comboFont
                                                 .addComponent(comboPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(lblPt)
-                                                .addGap(106, 106, 106)
+                                                .addGap(20) // gap between comboThemes and comboPoint
                                                 .addComponent(comboThemes, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(lblTheme)
@@ -268,6 +262,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
+        // menu setup
         menuBar.setBackground(new java.awt.Color(51, 51, 51));
         menuBar.setBorder(null);
         menuBar.setEnabled(false);
@@ -275,9 +270,7 @@ public class GUI extends javax.swing.JFrame {
         menuBar.setMinimumSize(new java.awt.Dimension(37, 2));
         menuBar.setName(""); // NOI18N
         menuBar.setPreferredSize(new java.awt.Dimension(37, 21));
-
         menuFile.setText("File");
-
         menuClose.setText("Close");
         menuClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,7 +278,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuFile.add(menuClose);
-
         fileOpen.setText("Open");
         fileOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +285,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuFile.add(fileOpen);
-
         fileSave.setText("Save");
         fileSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +292,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuFile.add(fileSave);
-
         fileSaveAs.setText("Save As");
         fileSaveAs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,11 +299,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuFile.add(fileSaveAs);
-
         menuBar.add(menuFile);
-
         menuHelp.setText("Help");
-
         helpAbout.setText("About");
         helpAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -321,11 +308,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuHelp.add(helpAbout);
-
         menuBar.add(menuHelp);
-
         setJMenuBar(menuBar);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -337,6 +321,9 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        // final setup of main jFrame
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Shinn Edit");
         setSize(new java.awt.Dimension(923, 589));
         setLocationRelativeTo(null);
 
